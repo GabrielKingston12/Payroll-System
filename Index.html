@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll System</title>
+  <link rel="stylesheet" href="body.css">
+</head>
+<body>
+  <<div class="sidebar">
+    <h2>💰PAYROLL💰</h2>
+    <button onclick="showSection('employee')">🧑‍💼 EMPLOYEE</button>
+    <button onclick="showSection('dtr')">⏰ DTR RECORDS</button>
+    <button onclick="showSection('deductions')">➖ DEDUCTIONS</button>
+    <button onclick="showSection('payroll')">⚙️ PAYROLL</button>
+    <button onclick="showSection('payslip')">🧾 REPORT</button>
+   </div>
+
+  <div class="main">
+  <div id="employee" class="section active">
+  <h2>Employee Section</h2>
+
+  <div class="employee-form-row">
+    <div class="form-group">
+      <label for="empName">Employee Name:</label>
+      <input type="text" id="empName" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="hourlyRate">Hourly Rate:</label>
+      <input type="number" id="hourlyRate" placeholder="₱ / hour">
+    </div>
+  </div>
+
+  <div class="add-btn-container">
+    <button id="addEmployeeBtn" class="generate" onclick="addEmployee()">Add Employee</button>
+  </div>
+
+  <h3>Employee List</h3>
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Hourly Rate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+    <div id="dtr" class="section">
+      <h2>DTR Records</h2>
+      <label for="dtrEmployeeSelect">Employee</label>
+      <select id="dtrEmployeeSelect">
+        <option value="">Select Employee</option>
+      </select>
+      <label for="dtrDate">Date</label>
+      <input type="date" id="dtrDate">
+     <div class="time-inputs">
+  <div>
+    <label for="dtrTimeIn">Time In</label>
+    <input type="time" id="dtrTimeIn">
+  </div>
+  <div>
+    <label for="dtrTimeOut">Time Out</label>
+    <input type="time" id="dtrTimeOut">
+  </div>
+</div>
+
+      <button id="addRecordBtn" class="generate" onclick="addDtrRecord()">Add Record</button>
+      <button class="clear-btn" onclick="clearDtrInputs()">Clear</button>
+      <h3>Attendance Records</h3>
+      <table id="dtrTable">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Date</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5">No records found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="deductions" class="section">
+      <h2>Deductions Section</h2>
+      <div class="deduction-item">
+        <span>SSS</span>
+        <span>4%</span>
+      </div>
+      <div class="deduction-item">
+        <span>PhilHealth</span>
+        <span>3%</span>
+      </div>
+      <div class="deduction-item">
+        <span>PAG-IBIG</span>
+        <span>1%</span>
+      </div>
+      <div class="deduction-item">
+        <span>W/Tax</span>
+        <span>8%</span>
+      </div>
+    </div>
+
+    <div id="payroll" class="section">
+      <h2>Generate Payroll</h2>
+      <label>Employee ID:</label>
+      <input type="number" id="empId">
+      <button class="generate" onclick="generatePayroll()">Generate</button>
+      <h3>Payroll Result</h3>
+      <div id="payrollResult"></div>
+    </div>
+
+    <div id="payslip" class="section">
+      <h2>Payslip History</h2>
+      <table id="payslipTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Employee</th>
+            <th>Gross Pay</th>
+            <th>SSS</th>
+            <th>PhilHealth</th>
+            <th>PAG-IBIG</th>
+            <th>W/Tax</th>
+            <th>Total Deduction</th>
+            <th>Net Pay</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="Java.js"></script>
+</body>
+</html>
